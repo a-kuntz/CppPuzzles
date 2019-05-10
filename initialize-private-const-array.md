@@ -33,7 +33,7 @@ template<typename T, size_t N>
 class A
 {
 public:
-    A(const std::array<T,N>& arg) : _array{arg} {}; // A
+    A(const std::array<T,N>& arg) : _array{arg} {};
 private:
     const std::array<T,N> _array;
 };
@@ -53,7 +53,7 @@ int main()
     A a4{*reinterpret_cast<std::array<int,3>*>(&c_array)};
 }
 ```
-[compiler explorer](https://godbolt.org/z/nVcVR7)
+[explore](https://godbolt.org/z/B5PZkG)
 
 ### Deduce template arguments
 
@@ -64,7 +64,7 @@ int main()
 template<typename T, size_t N>
 class A {
 public:
-    A(const T (&arg)[N]) :_array{std::experimental::to_array(arg)} {}; // B
+    A(const T (&arg)[N]) :_array{std::experimental::to_array(arg)} {};
 private:
     const std::array<T,N> _array;
 };
@@ -79,4 +79,4 @@ int main()
     A a2(c_array);
 }
 ```
-[compiler explorer](https://godbolt.org/z/Mmk2Iw)
+[explore](https://godbolt.org/z/XzkTPX)
