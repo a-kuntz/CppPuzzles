@@ -4,21 +4,20 @@
 
 You can't copy the array in the ctor body, since the array is declared const.
 
-```cpp
+```c++
+template<typename T, int N>
 struct A {
 public:
-    A(double d, const std::array<int,N>& a, int i)
-    : _d{d}, _a{a}, _i{i}
+    A(const T (&a)[N])
+    : _a{a}
     {};
 private:
-    double _d;
-    const std::array<int,N> _a;
-    int _i;
+    const T _a[N];
 };
 
 int main()
 {
-    A<3> a = {3.14, {1,2,3}, 4};
+    A a({1,2,3});
 }
 ```
 
