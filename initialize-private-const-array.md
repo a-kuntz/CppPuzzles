@@ -1,6 +1,8 @@
-# Initialize private array
+# Initialize private const array
 
 ## Problem
+
+You can't copy the array in the ctor body, since the array is declared const.
 
 ```cpp
 struct A {
@@ -10,7 +12,7 @@ public:
     {};
 private:
     double _d;
-    std::array<int,N> _a;
+    const std::array<int,N> _a;
     int _i;
 };
 
