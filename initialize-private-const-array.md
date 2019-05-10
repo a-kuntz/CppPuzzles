@@ -2,8 +2,6 @@
 
 ## Problem
 
-You can't copy the array in the ctor body, since the array is declared const.
-
 ```c++
 template<typename T, int N>
 struct A {
@@ -20,6 +18,8 @@ int main()
     A a({1,2,3});
 }
 ```
+
+You can't copy the array in the ctor body, since the array is declared `const`. Array initialization in initialization list is not supported, either.
 
 ## Solution
 
