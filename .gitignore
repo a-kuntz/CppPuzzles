@@ -32,5 +32,4 @@
 *.app
 
 build
-CMakeLists.txt
 explore.cpp
